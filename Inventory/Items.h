@@ -8,7 +8,7 @@ private:
 	int id;
 	std::string name;
 	sf::Sprite icon;
-	sf::Texture *iconTexture;
+	std::unique_ptr<sf::Texture> iconTexture;
 public:
 	Items(int _id, const std::string _name);
 	~Items();

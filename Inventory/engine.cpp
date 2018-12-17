@@ -7,7 +7,6 @@ Engine::Engine()
 	window.setVerticalSyncEnabled(true);
 	ui = std::make_unique<UI>(window);
 	ui->init();
-	s_bag = false;
 }
 
 Engine::~Engine()
@@ -22,10 +21,7 @@ void Engine::loop()
 			if (event.type == sf::Event::Closed)
 				window.close();
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::I) {
-				if (s_bag)
-					s_bag = false;
-				else
-					s_bag = true;
+				ui->showInv();
 			}
 		}
 		this->update();
@@ -35,13 +31,12 @@ void Engine::loop()
 
 void Engine::update()
 {
+	ui->update();
 }
 
 void Engine::draw()
 {
 	window.clear();
-	if (s_bag)
-		ui->drawBag();
-	ui->drawUI();
+	ui->ui_draw();
 	window.display();
 }

@@ -3,6 +3,7 @@
 
 
 Items::Items(int _id, const std::string _name) {
+	iconTexture = std::make_unique<sf::Texture>();
 	iconTexture->loadFromFile("gfx"+_name);
 	icon.setTexture(*iconTexture);
 }
