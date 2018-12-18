@@ -5,6 +5,8 @@ Engine::Engine()
 	window.create(sf::VideoMode(1280, 720), "Gra");
 	window.setFramerateLimit(60);
 	window.setVerticalSyncEnabled(true);
+	ui = std::make_unique<UI>(window);
+	ui->init();
 	player = std::make_unique<Player>(window);
 }
 
@@ -20,7 +22,10 @@ void Engine::loop()
 			if (event.type == sf::Event::Closed)
 				window.close();
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::I) {
-				player->showBag();
+				//sf::Texture potion;
+				//potion.loadFromFile("gfx/potion1.png");
+				//ui->getSlot(1)->setTexture(&potion);
+				//player->showBag();
 			}
 		}
 		this->update();
@@ -36,6 +41,7 @@ void Engine::update()
 void Engine::draw()
 {
 	window.clear();
+	//ui->draw();
 	player->draw();
 	window.display();
 }

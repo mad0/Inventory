@@ -1,13 +1,12 @@
 #pragma once
-#include "UI.h"
 #include "Inventory.h"
 
 class Player
 {
 private: 
 	sf::RenderWindow &window;
-	std::unique_ptr<UI> ui;
 	std::unique_ptr<Inventory> playerBag;
+	bool isVisible;
 public:
 	Player(sf::RenderWindow &_window);
 	~Player();

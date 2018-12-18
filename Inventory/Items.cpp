@@ -13,11 +13,6 @@ Items::~Items()
 {
 }
 
-void Items::setPosition()
-{
-	icon.setPosition(0,0);
-}
-
 void Items::draw(sf::RenderWindow &_window)
 {
 	_window.draw(icon);

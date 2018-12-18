@@ -7,15 +7,13 @@ class UI
 private:
 	sf::RenderWindow &window;
 	std::unique_ptr<sf::Texture> slotTexture;
-	int slotsNumber;
-	bool showBag;
+	std::vector<std::unique_ptr<sf::RectangleShape>> bar;
 public:
 	void init();
 	UI(sf::RenderWindow &_window);
 	~UI();
-	void ui_draw();
+	void draw();
 	void update();
-	void showInv();
-	sf::Vector2f freeSlot();
+	std::unique_ptr<sf::RectangleShape> & getSlot( int _slot);
 };
 

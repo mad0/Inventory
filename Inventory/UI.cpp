@@ -6,9 +6,6 @@ UI::UI(sf::RenderWindow &_window) :window(_window)
 {
 	slotTexture = std::make_unique<sf::Texture>();
 	slotTexture->loadFromFile("gfx/slot.png");
-	slotsNumber = 10;
-	showBag = false;
-
 }
 
 UI::~UI()
@@ -17,34 +14,26 @@ UI::~UI()
 
 void UI::init()
 {
-	
+	for (int x = 0; x < 10; x++) {
+		std::unique_ptr<sf::RectangleShape> uiSlot = std::make_unique<sf::RectangleShape>(sf::Vector2f(64, 64));
+		uiSlot->setTexture(&(*slotTexture));
+		uiSlot->setPosition(128 + (x * 66), 656);
+		bar.emplace_back(std::move(uiSlot));
+	}
 }
 
-
-void UI::ui_draw()
+void UI::draw()
 {
-	//for (auto &l : bar_slots)
-	//	window.draw(*l);
-	//if (showBag) {
-	//	for (auto &o : bag_slots)
-	//		window.draw(*o);
-	//}
+	for (auto &l : bar)
+		window.draw(*l);
 }
-
-void UI::showInv()
-{
-	if (showBag)
-		showBag = false;
-	else showBag = true;
-}
-
-sf::Vector2f UI::freeSlot()
-{
-	return sf::Vector2f();
-}
-
 
 void UI::update()
 {
 
+}
+
+std::unique_ptr<sf::RectangleShape> & UI::getSlot(int _slot)
+{
+	return bar.at(_slot);
 }

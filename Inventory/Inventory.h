@@ -4,13 +4,15 @@
 class Inventory
 {
 private:
-	std::vector < std::unique_ptr<Items>> bag;
+	sf::RenderWindow &window;
+	std::vector<std::unique_ptr<sf::RectangleShape>> bagSlots;
+	std::vector < std::unique_ptr<Items>> items;
+	std::unique_ptr<sf::Texture> slotTexture;
 public:
-	Inventory();
+	Inventory(sf::RenderWindow &_window);
 	~Inventory();
 	void init();
+	void drawSlots();
 	void addItem();
-	void delitem();
-	void showInventory();
 };
 
