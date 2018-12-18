@@ -1,12 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "UI.h"
-#include "Items.h"
+#include "Player.h"
 
 class Engine {
 private:
-	std::map<int, Items*> items;
-	std::unique_ptr<UI> ui;
+	std::unique_ptr<Player> player;
 	sf::RenderWindow window;
 public:
 	Engine();

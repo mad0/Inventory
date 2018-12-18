@@ -20,13 +20,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine.cpp" />
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Items.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine.h" />
+    <ClInclude Include="Inventory.h" />
     <ClInclude Include="Items.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

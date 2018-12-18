@@ -12,6 +12,7 @@ private:
 public:
 	Items(int _id, const std::string _name);
 	~Items();
+	void setPosition();
 	void draw(sf::RenderWindow &_window);
 };
 

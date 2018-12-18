@@ -6,9 +6,8 @@ class UI
 {
 private:
 	sf::RenderWindow &window;
-	std::vector<std::unique_ptr<sf::RectangleShape>> ui_slots;
-	std::vector<std::unique_ptr<sf::RectangleShape>> bag_slots;
 	std::unique_ptr<sf::Texture> slotTexture;
+	int slotsNumber;
 	bool showBag;
 public:
 	void init();
@@ -17,5 +16,6 @@ public:
 	void ui_draw();
 	void update();
 	void showInv();
+	sf::Vector2f freeSlot();
 };
 
