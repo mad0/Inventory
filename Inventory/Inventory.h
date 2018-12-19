@@ -1,18 +1,23 @@
 #pragma once
-#include "Items.h"
+#include <vector>
+#include <memory>
+#include <SFML/Graphics.hpp>
+
+class Items;
 
 class Inventory
 {
 private:
-	sf::RenderWindow &window;
-	std::vector<std::unique_ptr<sf::RectangleShape>> bagSlots;
-	std::vector < std::unique_ptr<Items>> items;
 	std::unique_ptr<sf::Texture> slotTexture;
+	std::vector<std::unique_ptr<sf::RectangleShape>> bagSlots;
+	std::vector<Items*> Bag;
 public:
-	Inventory(sf::RenderWindow &_window);
+	Inventory();
 	~Inventory();
+	void drawBag(sf::RenderWindow &_window);
 	void init();
-	void drawSlots();
-	void addItem();
+	void addItem(Items *_item);
+	void showBag();
+	Items * getItem();
 };
 

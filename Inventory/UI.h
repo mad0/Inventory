@@ -14,6 +14,6 @@ public:
 	~UI();
 	void draw();
 	void update();
-	std::unique_ptr<sf::RectangleShape> & getSlot( int _slot);
+	sf::Vector2f getSlot(int _slot);
 };
 

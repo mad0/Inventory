@@ -13,5 +13,6 @@ public:
 	Items(int _id, const std::string _name);
 	~Items();
 	void draw(sf::RenderWindow &_window);
+	void setPosition(sf::Vector2f _pos);
 };
 
