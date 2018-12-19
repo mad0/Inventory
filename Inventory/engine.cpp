@@ -7,8 +7,6 @@ Engine::Engine()
 	window.setVerticalSyncEnabled(true);
 	ui = std::make_unique<UI>(window);
 	ui->init();
-	items.push_back(new Items(0, "weap1.png"));
-	
 	player = std::make_unique<Player>(window);
 }
 
@@ -25,16 +23,16 @@ void Engine::loop()
 				window.close();
 			//zaklada bron z ekwipunku na lewa reke (tu p owinno byc JAKA BRON)
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::E) {
-				player->equipWeapon(Slot::leftHand);
-				items[0]->setPosition(ui->getSlot(0));
+				//player->equipWeapon(Slot::leftHand);
+				//items[0]->setPosition(ui->getSlot(0));
 			}
 			//lootuje item do torby
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::L) {
-				player->lootItem(items[0]);
+				player->lootItem("weap1.png");
 			}
 			//wyswietla zawartosc torby
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::I) {
-				
+				player->showBag();
 			}
 		}
 		this->update();
@@ -51,8 +49,6 @@ void Engine::draw()
 {
 	window.clear();
 	ui->draw();
-	for (auto &u : items)
-		u->draw(window);
 	player->draw();
 	window.display();
 }

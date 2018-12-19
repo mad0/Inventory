@@ -18,17 +18,19 @@ private:
 	std::string name;
 	Items *leftHand;
 	Items *rightHand;
-	Inventory *inventory;
-
-	
+	bool isVisible;
+	//stworzone itemy dopiero zostana dodane to torby po lootedItem()
+	std::unique_ptr<Inventory> bag;
 public:
 	Player(sf::RenderWindow &_window);
 	~Player();
 	void update();
 	void draw();
-	void lootItem(Items *_item);
+	//tworzy item i dodaje do torby (kontener: items)
+	void lootItem(const std::string &_name);
 	//ponizej powinno byc jaka bron zaklada z torby(wskaznik)
 	void equipWeapon(Slot _slot);
 	void unequipeWeapon(Slot _slot);
+	void showBag();
 };
 

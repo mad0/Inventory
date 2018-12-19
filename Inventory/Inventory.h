@@ -2,8 +2,7 @@
 #include <vector>
 #include <memory>
 #include <SFML/Graphics.hpp>
-
-class Items;
+#include "Items.h"
 
 class Inventory
 {
@@ -16,7 +15,7 @@ public:
 	~Inventory();
 	void drawBag(sf::RenderWindow &_window);
 	void init();
-	void addItem(Items *_item);
+	void addItem(const std::string &_name);
 	void showBag();
 	Items * getItem();
 };

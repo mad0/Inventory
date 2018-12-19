@@ -30,9 +30,9 @@ void Inventory::init()
 }
 
 
-void Inventory::addItem(Items *_item)
+void Inventory::addItem(const std::string&_name)
 {
-	Bag.push_back(_item);
+	Bag.push_back(new Items(1, _name));
 	std::cout << "Items in inventoru: "<<Bag.size()<<"\n";
 }
 
