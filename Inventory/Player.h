@@ -3,6 +3,8 @@
 #include <iostream>
 #include "Inventory.h"
 
+class Items;
+
 enum Slot {
 	leftHand,
 	rightHand
@@ -16,15 +18,15 @@ private:
 	std::string name;
 	Items *leftHand;
 	Items *rightHand;
-	//stworzone itemy dopiero zostana dodane to torby po lootedItem()
-	std::vector<Items*> bag;
+	Inventory *inventory;
+
+	
 public:
 	Player(sf::RenderWindow &_window);
 	~Player();
 	void update();
 	void draw();
-	//tworzy item i dodaje do torby (kontener: items)
-	void lootItem(const std::string &_name);
+	void lootItem(Items *_item);
 	//ponizej powinno byc jaka bron zaklada z torby(wskaznik)
 	void equipWeapon(Slot _slot);
 	void unequipeWeapon(Slot _slot);

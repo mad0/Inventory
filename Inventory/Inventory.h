@@ -16,7 +16,8 @@ public:
 	~Inventory();
 	void drawBag(sf::RenderWindow &_window);
 	void init();
-	void addItem(const std::string _name);
+	void addItem(Items *_item);
 	void showBag();
+	Items * getItem();
 };
 

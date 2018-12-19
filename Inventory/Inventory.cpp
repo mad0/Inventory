@@ -29,10 +29,15 @@ void Inventory::init()
 	std::cout << "Bag size: " << bagSlots.size() << "\n";
 }
 
-//tworze nowy item!!!
-void Inventory::addItem(const std::string _name)
+
+void Inventory::addItem(Items *_item)
 {
-	
-	//std::cout << "Items in inventoru: "<<Bag.size()<<"\n";
+	Bag.push_back(_item);
+	std::cout << "Items in inventoru: "<<Bag.size()<<"\n";
 }
 
+Items * Inventory::getItem()
+{
+	if (Bag.size()>0)
+		return Bag[0];
+}
