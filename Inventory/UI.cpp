@@ -33,7 +33,7 @@ void UI::update()
 
 }
 
-std::unique_ptr<sf::RectangleShape> & UI::getSlot(int _slot)
+sf::Vector2f UI::getSlot(int _slot)
 {
-	return bar.at(_slot);
+	return bar.at(_slot)->getPosition();
 }
