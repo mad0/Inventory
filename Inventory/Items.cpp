@@ -6,7 +6,6 @@ Items::Items(int _id, const std::string _name) {
 	iconTexture = std::make_unique<sf::Texture>();
 	iconTexture->loadFromFile("gfx/"+_name);
 	icon.setTexture(*iconTexture);
-	icon.setScale(0.5, 0.5);
 }
 
 
@@ -22,4 +21,9 @@ void Items::draw(sf::RenderWindow &_window)
 void Items::setPosition(sf::Vector2f _pos)
 {
 	icon.setPosition(_pos);
+}
+
+void Items::setScale(float _x, float _y)
+{
+	icon.setScale(_x, _y);
 }

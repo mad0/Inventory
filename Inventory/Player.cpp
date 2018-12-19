@@ -1,6 +1,5 @@
 #include "Player.h"
 
-
 Player::Player(sf::RenderWindow &_window) :window(_window)
 {
 	isVisible = false;
@@ -8,7 +7,6 @@ Player::Player(sf::RenderWindow &_window) :window(_window)
 	bag->init();
 	leftHand = nullptr;
 	rightHand = nullptr;
-	
 }
 
 

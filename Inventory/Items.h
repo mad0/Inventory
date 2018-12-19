@@ -14,5 +14,6 @@ public:
 	~Items();
 	void draw(sf::RenderWindow &_window);
 	void setPosition(sf::Vector2f _pos);
+	void setScale(float _x, float _y);
 };
 

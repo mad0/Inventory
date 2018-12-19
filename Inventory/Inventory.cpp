@@ -16,14 +16,17 @@ void Inventory::drawBag(sf::RenderWindow & _window)
 	for (auto &b : bagSlots) {
 		_window.draw(*b);
 	}
+	for (auto &i : Bag)
+		i->draw(_window);
 }
 
 void Inventory::init()
 {
+	//BAG SLOTS
 	for (int x = 0; x < 10; x++) {
-		std::unique_ptr<sf::RectangleShape> tempRect = std::make_unique<sf::RectangleShape>(sf::Vector2f(32,32));
+		std::unique_ptr<sf::RectangleShape> tempRect = std::make_unique<sf::RectangleShape>(sf::Vector2f(64,64));
 		tempRect->setTexture(&(*slotTexture));
-		tempRect->setPosition(300 + (32 * x), 400);
+		tempRect->setPosition(300 + (64 * x), 400);
 		bagSlots.emplace_back(std::move(tempRect));	
 	}
 	std::cout << "Bag size: " << bagSlots.size() << "\n";
@@ -32,12 +35,11 @@ void Inventory::init()
 
 void Inventory::addItem(const std::string&_name)
 {
-	Bag.push_back(new Items(1, _name));
+	std::unique_ptr<Items> tempItem = std::make_unique<Items>(1, _name);
+	tempItem->setPosition(bagSlots[0]->getPosition());
+	tempItem->setScale(0.5, 0.5);
+	Bag.emplace_back(std::move(tempItem));
 	std::cout << "Items in inventoru: "<<Bag.size()<<"\n";
 }
 
-Items * Inventory::getItem()
-{
-	if (Bag.size()>0)
-		return Bag[0];
-}
+

@@ -2,7 +2,7 @@
 
 Engine::Engine() 
 {
-	window.create(sf::VideoMode(1280, 720), "Gra");
+	window.create(sf::VideoMode(1920, 1080), "Gra", sf::Style::Fullscreen);
 	window.setFramerateLimit(60);
 	window.setVerticalSyncEnabled(true);
 	ui = std::make_unique<UI>(window);
