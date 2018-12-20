@@ -38,8 +38,8 @@ void Inventory::addItem(const std::string&_name)
 	std::unique_ptr<Items> tempItem = std::make_unique<Items>(1, _name);
 	tempItem->setPosition(bagSlots[0]->getPosition());
 	tempItem->setScale(0.5, 0.5);
-	Bag.emplace_back(std::move(tempItem));
-	std::cout << "Items in inventoru: "<<Bag.size()<<"\n";
+	//Bag.emplace_back(std::move(tempItem));
+	//std::cout << "Items in inventoru: "<<Bag.size()<<"\n";
 }
 
 
