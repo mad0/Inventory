@@ -1,5 +1,7 @@
 #include "Inventory.h"
 #include <iostream>
+#include <typeinfo>
+#include "Items.h"
 
 Inventory::Inventory() {
 	slotTexture = std::make_unique<sf::Texture>();
@@ -33,13 +35,18 @@ void Inventory::init()
 }
 
 
-void Inventory::addItem(const std::string&_name)
+void Inventory::addItem(Items * _item)
 {
-	std::unique_ptr<Items> tempItem = std::make_unique<Items>(1, _name);
-	tempItem->setPosition(bagSlots[0]->getPosition());
-	tempItem->setScale(0.5, 0.5);
-	//Bag.emplace_back(std::move(tempItem));
-	//std::cout << "Items in inventoru: "<<Bag.size()<<"\n";
+	std::cout << &_item;
+	//if (_item->getType() == Items::WEAPON) {
+		_item->setPosition(bagSlots[Bag.size()]->getPosition());
+		_item->setScale(0.5, 0.5);
+		Bag.push_back(_item);
+	//}
+
+	std::cout << "Items in inventoru: " << Bag.size() << "\n";
+	//if (Bag[0]->getType() == Weapon::Sword)
+	//std::cout << "ATTACK: " << dynamic_cast<Weapon*>(Bag[0].get())->Attack() << "\n";
 }
 
 

@@ -1,9 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Items.h"
 #include "Inventory.h"
-
-class Items;
 
 enum Slot {
 	leftHand,
@@ -27,7 +26,7 @@ public:
 	void update();
 	void draw();
 	//tworzy item i dodaje do torby (kontener: items)
-	void lootItem(const std::string &_name);
+	void lootItem(Items *_item);
 	//ponizej powinno byc jaka bron zaklada z torby(wskaznik)
 	void equipWeapon(Slot _slot);
 	void unequipeWeapon(Slot _slot);

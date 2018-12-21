@@ -17,7 +17,7 @@ void UI::init()
 	for (int x = 0; x < 10; x++) {
 		std::unique_ptr<sf::RectangleShape> uiSlot = std::make_unique<sf::RectangleShape>(sf::Vector2f(64, 64));
 		uiSlot->setTexture(&(*slotTexture));
-		uiSlot->setPosition(128 + (x * 66), 1016);
+		uiSlot->setPosition(128 + (x * 66), 656);
 		bar.emplace_back(std::move(uiSlot));
 	}
 }

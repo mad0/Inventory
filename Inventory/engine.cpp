@@ -1,8 +1,22 @@
 #include "engine.h"
 
-Engine::Engine() 
+Items * Engine::takeItem(int _id)
 {
-	window.create(sf::VideoMode(1920, 1080), "Gra", sf::Style::Fullscreen);
+	for (auto &o : itemsData) {
+		if (o->getId() == _id) {
+			//std::cout << &o;
+			return o;
+		}
+	}	
+}
+
+Engine::Engine()
+{
+	itemsData.emplace_back(new Weapon(Items::WEAPON, 45, "Weap1.png", 10, 15));
+	itemsData.emplace_back(new Armor(Items::ARMOR, 22, "Helmet.png", 100));
+	std::cout<<itemsData.at(0);
+	std::cout<<itemsData.at(1);
+	window.create(sf::VideoMode(1280, 720), "Gra");
 	window.setFramerateLimit(60);
 	window.setVerticalSyncEnabled(true);
 	ui = std::make_unique<UI>(window);
@@ -28,7 +42,7 @@ void Engine::loop()
 			}
 			//lootuje item do torby
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::L) {
-				player->lootItem("weap1.png");
+				player->lootItem(takeItem(45));
 			}
 			//wyswietla zawartosc torby
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::I) {

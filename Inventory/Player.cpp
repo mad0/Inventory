@@ -26,10 +26,11 @@ void Player::draw()
 		bag->drawBag(window);
 }
 
-void Player::lootItem(const std::string &_name)
+void Player::lootItem(Items *_item)
 {
-	bag->addItem(_name);
-	std::cout << "Looted: " << _name;
+	std::cout << &_item;
+	bag->addItem(_item);
+	//std::cout << "Looted: " << _name;
 }
 
 void Player::equipWeapon(Slot _slot)
